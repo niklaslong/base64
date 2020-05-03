@@ -33,6 +33,14 @@ fn encode(s: String) -> String {
     b64
 }
 
+#[rustler::nif]
+fn encode_config(s: String, opt: Atom) -> String {
+    let config: base64::Config = match_config(opt);
+    let b64 = base64::encode_config(s.as_bytes(), config);
+    
+    b64
+}
+
 fn match_config(option: Atom) -> base64::Config {
     if option == atoms::crypt() {
         base64::CRYPT
@@ -45,8 +53,8 @@ fn match_config(option: Atom) -> base64::Config {
     } else if option == atoms::standard_no_pad() {
         base64::STANDARD_NO_PAD
     } else {
-        base64::STANDARD_NO_PAD
+        base64::STANDARD
     }
 }
 
-rustler::init!("Elixir.Base64.NifBridge", [decode, decode_config, encode]);
+rustler::init!("Elixir.Base64.NifBridge", [decode, decode_config, encode, encode_config]);
