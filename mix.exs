@@ -29,7 +29,7 @@ defmodule Base64.MixProject do
 
   defp aliases do
     [
-      fmt: ["format", "cmd cargo fmt --manifest-path native/lars/Cargo.toml"]
+      fmt: ["format", "cmd cargo fmt --manifest-path native/base64_nif/Cargo.toml"]
     ]
   end
 end
