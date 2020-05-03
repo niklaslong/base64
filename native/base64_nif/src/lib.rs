@@ -14,6 +14,12 @@ mod atoms {
       
 }
 
+#[rustler::nif]
+fn decode(s: String) -> String {
+    let bytes = base64::decode(s).unwrap();
+    String::from_utf8(bytes).unwrap()
+}
+
 fn match_config(option: Atom) -> base64::Config {
     if option == atoms::crypt() {
         base64::CRYPT
@@ -30,4 +36,4 @@ fn match_config(option: Atom) -> base64::Config {
     }
 }
 
-rustler::init!("Elixir.Base64.NifBridge", []);
+rustler::init!("Elixir.Base64.NifBridge", [decode]);
