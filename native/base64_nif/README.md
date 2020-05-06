@@ -1,4 +1,4 @@
-# NIF for Elixir.Base64.NifBridge
+# NIF for Elixir.Base64
 
 ## To build the NIF module:
 
@@ -7,7 +7,7 @@
 ## To load the NIF:
 
 ```elixir
-defmodule Base64.NifBridge do
+defmodule Base64 do
     use Rustler, otp_app: :base64, crate: "base64_nif"
 
     # When your NIF is loaded, it will override this function.

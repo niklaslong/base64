@@ -58,6 +58,6 @@ fn match_config(option: Atom) -> base64::Config {
 }
 
 rustler::init!(
-    "Elixir.Base64.NifBridge",
+    "Elixir.Base64",
     [decode, decode_config, encode, encode_config]
 );

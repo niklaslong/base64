@@ -2,8 +2,8 @@ b64 = "aGVsbG8gd29ybGQ="
 
 Benchee.run(
   %{
-    "Rust Nif" => fn -> Base64.NifBridge.decode(s) end,
-    "Elixir/Erlang" => fn -> Base.decode64!(s) end
+    "Rust Nif decode" => fn -> Base64.decode(b64) end,
+    "Elixir/Erlang decode" => fn -> Base.decode64!(b64) end
   },
   time: 10,
   memory_time: 2
@@ -13,8 +13,8 @@ s = "If I should have a daughter, instead of mom, she’s going to call me Point
 
 Benchee.run(
   %{
-    "Rust Nif" => fn -> Base64.NifBridge.encode(s) end,
-    "Elixir/Erlang" => fn -> Base.encode64(s) end
+    "Rust Nif encode" => fn -> Base64.encode(s) end,
+    "Elixir/Erlang encode" => fn -> Base.encode64(s) end
   },
   time: 10,
   memory_time: 2
