@@ -14,13 +14,13 @@ mod atoms {
 }
 
 #[rustler::nif]
-fn decode(s: String) -> String {
+pub fn decode(s: String) -> String {
     let bytes = base64::decode(s).unwrap();
     String::from_utf8(bytes).unwrap()
 }
 
 #[rustler::nif]
-fn decode_config(b64: String, opt: Atom) -> String {
+pub fn decode_config(b64: String, opt: Atom) -> String {
     let config: base64::Config = match_config(opt);
     let bytes = base64::decode_config(b64, config).unwrap();
 
@@ -28,13 +28,13 @@ fn decode_config(b64: String, opt: Atom) -> String {
 }
 
 #[rustler::nif]
-fn encode(s: String) -> String {
+pub fn encode(s: String) -> String {
     let b64 = base64::encode(s.as_bytes());
     b64
 }
 
 #[rustler::nif]
-fn encode_config(s: String, opt: Atom) -> String {
+pub fn encode_config(s: String, opt: Atom) -> String {
     let config: base64::Config = match_config(opt);
     let b64 = base64::encode_config(s.as_bytes(), config);
 
