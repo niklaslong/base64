@@ -29,16 +29,13 @@ pub fn decode_config(b64: String, opt: Atom) -> String {
 
 #[rustler::nif]
 pub fn encode(s: String) -> String {
-    let b64 = base64::encode(s.as_bytes());
-    b64
+    base64::encode(s.as_bytes())
 }
 
 #[rustler::nif]
 pub fn encode_config(s: String, opt: Atom) -> String {
     let config: base64::Config = match_config(opt);
-    let b64 = base64::encode_config(s.as_bytes(), config);
-
-    b64
+    base64::encode_config(s.as_bytes(), config)
 }
 
 fn match_config(option: Atom) -> base64::Config {
