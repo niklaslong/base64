@@ -14,13 +14,7 @@ mod atoms {
 }
 
 #[rustler::nif]
-pub fn decode(s: String) -> String {
-    let bytes = base64::decode(s).unwrap();
-    String::from_utf8(bytes).unwrap()
-}
-
-#[rustler::nif]
-pub fn decode_config(b64: String, opt: Atom) -> String {
+pub fn decode(b64: String, opt: Atom) -> String {
     let config: base64::Config = match_config(opt);
     let bytes = base64::decode_config(b64, config).unwrap();
 
@@ -28,12 +22,7 @@ pub fn decode_config(b64: String, opt: Atom) -> String {
 }
 
 #[rustler::nif]
-pub fn encode(s: String) -> String {
-    base64::encode(s.as_bytes())
-}
-
-#[rustler::nif]
-pub fn encode_config(s: String, opt: Atom) -> String {
+pub fn encode(s: String, opt: Atom) -> String {
     let config: base64::Config = match_config(opt);
     base64::encode_config(s.as_bytes(), config)
 }
@@ -54,7 +43,4 @@ fn match_config(option: Atom) -> base64::Config {
     }
 }
 
-rustler::init!(
-    "Elixir.Base64",
-    [decode, decode_config, encode, encode_config]
-);
+rustler::init!("Elixir.Base64", [decode, encode]);
