@@ -36,6 +36,41 @@ defmodule Base64Test do
         assert s == Base.decode64!(b64_s)
       end
     end
+
+    test "returns a valid string (standard no padding)" do
+      check all s <- StreamData.string(:ascii),
+                b64_s = Base64.encode(s, :standard_no_pad) do
+        assert String.valid?(b64_s)
+      end
+    end
+
+    test "returns a valid string (url safe)" do
+      check all s <- StreamData.string(:ascii),
+                b64_s = Base64.encode(s, :url_safe) do
+        assert String.valid?(b64_s)
+      end
+    end
+
+    test "returns a valid string (url safe no padding)" do
+      check all s <- StreamData.string(:ascii),
+                b64_s = Base64.encode(s, :url_safe_no_pad) do
+        assert String.valid?(b64_s)
+      end
+    end
+
+    test "returns a valid string (crypt)" do
+      check all s <- StreamData.string(:ascii),
+                b64_s = Base64.encode(s, :crypt) do
+        assert String.valid?(b64_s)
+      end
+    end
+
+    test "returns a valid string (imap modified utf7)" do
+      check all s <- StreamData.string(:ascii),
+                b64_s = Base64.encode(s, :imap_map7) do
+        assert String.valid?(b64_s)
+      end
+    end
   end
 
   describe "decode/1:" do
