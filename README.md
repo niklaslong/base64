@@ -1,11 +1,13 @@
 # Base64
 
-**TODO: Add description**
+A micro library to encode and decode binaries using the base 64 encoding scheme.
+This library uses [rustler](https://github.com/rusterlium/rustler) to implement rust NIFs which wrap the [base64 crate](https://github.com/marshallpierce/rust-base64). 
+These functions are 2-30x faster than the built in Elixir/Erlang versions depending on the amount of data encoded and decoded. 
+The larger the data, the bigger the difference. 
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `base64` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `base64` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -15,7 +17,5 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/base64](https://hexdocs.pm/base64).
+The docs can be found at [https://hexdocs.pm/base64](https://hexdocs.pm/base64).
 
