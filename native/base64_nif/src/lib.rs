@@ -16,7 +16,7 @@ mod atoms {
 #[rustler::nif]
 pub fn decode(b64: String, opt: Atom) -> String {
     let config: base64::Config = match_config(opt);
-    let bytes = base64::decode_config(b64, config).unwrap();
+    let bytes = base64::decode_config(b64, config).expect("decode failed: invalid b64");
 
     String::from_utf8(bytes).unwrap()
 }
