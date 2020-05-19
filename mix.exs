@@ -26,7 +26,8 @@ defmodule Base64.MixProject do
   defp deps do
     [
       {:rustler, github: "rusterlium/rustler", sparse: "rustler_mix", branch: "master"},
-      {:stream_data, "~> 0.5.0", only: [:test, :dev]}
+      {:stream_data, "~> 0.5.0", only: [:test, :dev]},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
   end
 
