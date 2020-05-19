@@ -2,7 +2,7 @@ defmodule Base64 do
   @moduledoc """
   Provides functions to encode and decode base64.
 
-  All functions can specify options as a second argument to specify the character set to be used while encoding and to be expected while decoding.
+  All functions can specify an optional second argument to determine the character set to be used while encoding and to be expected while decoding.
   The possible options are:
   - `:standard`: this is the default if no second argument is specified, standard character set with padding.
   - `:standard_no_pad`: standard character set without padding.

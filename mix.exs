@@ -8,7 +8,10 @@ defmodule Base64.MixProject do
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      description: description(),
+      package: package(),
+      docs: docs()
     ]
   end
 
@@ -30,6 +33,33 @@ defmodule Base64.MixProject do
   defp aliases do
     [
       fmt: ["format", "cmd cargo fmt --manifest-path native/base64_nif/Cargo.toml"]
+    ]
+  end
+
+  defp description() do
+    """
+    A micro-library providing base 64 encoding/decoding using Rust NIFs. 
+    """
+  end
+
+  defp package() do
+    [
+      maintainers: ["Niklas Long"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/niklaslong/base64"},
+      files:
+        ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE* CHANGELOG* src native/base64_nif/src native/base64_nif/.cargo native/base64_nif/README* native/base64_nif/Cargo*)
+    ]
+  end
+
+  defp docs() do
+    [
+      main: "readme",
+      name: "Base64",
+      source_url: "https://github.com/niklaslong/base64",
+      extras: [
+        "README.md"
+      ]
     ]
   end
 end

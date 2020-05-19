@@ -2,6 +2,7 @@ defmodule Base64Test do
   use ExUnit.Case
   use ExUnitProperties
 
+  alias Base64
   alias StreamData
 
   doctest Base64
