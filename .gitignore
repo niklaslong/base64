@@ -24,3 +24,5 @@ base64-*.tar
 
 /native/base64_nif/target
 /priv/native/*.so
+
+benchmarks.exs
