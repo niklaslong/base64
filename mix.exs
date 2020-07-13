@@ -49,7 +49,7 @@ defmodule Base64.MixProject do
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/niklaslong/base64"},
       files:
-        ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE* CHANGELOG* src native/base64_nif/src native/base64_nif/.cargo native/base64_nif/README* native/base64_nif/Cargo*)
+        ~w(lib priv .formatter.exs mix.exs README* LICENSE* native/base64_nif/src native/base64_nif/.cargo native/base64_nif/README* native/base64_nif/Cargo*)
     ]
   end
 
