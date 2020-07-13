@@ -1,5 +1,7 @@
 # Base64
 
+[Documentation](https://hexdocs.pm/base64)
+
 A micro-library to encode and decode binaries using the base 64 encoding scheme.
 This library uses [rustler](https://github.com/rusterlium/rustler) to implement Rust NIFs which wrap the [base64 crate](https://github.com/marshallpierce/rust-base64). 
 
@@ -19,4 +21,22 @@ def deps do
 end
 ```
 
-The docs can be found at [https://hexdocs.pm/base64](https://hexdocs.pm/base64).
+## Usage
+
+```elixir
+  iex> Base64.encode("hello world")
+  "aGVsbG8gd29ybGQ="
+
+  iex> Base64.decode("aGVsbG8gd29ybGQ=")
+  "hello world"
+```
+
+With options (see [docs](https://hexdocs.pm/base64)): 
+
+```elixir
+  iex> Base64.encode("hello world", :standard_no_pad)
+  "aGVsbG8gd29ybGQ"
+
+  iex> Base64.decode("aGVsbG8gd29ybGQ", :standard_no_pad)
+  "hello world"
+```
