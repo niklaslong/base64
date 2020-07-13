@@ -16,7 +16,7 @@ The package can be installed by adding `base64` to your list of dependencies in 
 ```elixir
 def deps do
   [
-    {:base64, "~> 0.1.0"}
+    {:base64, "~> 0.1.0-rc"}
   ]
 end
 ```
