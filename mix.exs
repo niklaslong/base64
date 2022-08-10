@@ -25,7 +25,7 @@ defmodule Base64.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.22-rc"},
+      {:rustler, "~> 0.25"},
       {:stream_data, "~> 0.5.0", only: [:test, :dev]},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
@@ -39,7 +39,7 @@ defmodule Base64.MixProject do
 
   defp description() do
     """
-    A micro-library providing base 64 encoding/decoding using Rust NIFs. 
+    A micro-library providing base 64 encoding/decoding using Rust NIFs.
     """
   end
 
