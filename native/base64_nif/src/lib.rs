@@ -1,6 +1,7 @@
-use base64::engine::fast_portable;
-use base64::engine::fast_portable::FastPortable;
-use base64::{alphabet, decode_engine, encode_engine};
+use base64::{
+    alphabet, decode_engine, encode_engine,
+    engine::{fast_portable, fast_portable::FastPortable},
+};
 use rustler::Atom;
 
 mod atoms {
