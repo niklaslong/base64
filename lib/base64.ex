@@ -4,7 +4,7 @@ defmodule Base64 do
 
   All functions can specify an optional second argument to determine the character set to be used while encoding and to be expected while decoding.
   The possible alphabets are:
-  - `:standard`: the default as specced in [RFC3548](https://www.rfc-editor.org/rfc/rfc3548#section-3)
+  - `:standard`: the default as specced in [RFC3548](https://www.rfc-editor.org/rfc/rfc3548#section-3).
   - `:url_safe`: URL-safe character set with padding (uses `-` and `_`).
   - `:crypt`: as per crypt(3) requirements, (uses `.` and `/` as the first two values).
   - `:bcrypt`: the bcrypt alphabet.
