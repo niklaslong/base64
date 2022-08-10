@@ -27,7 +27,7 @@ defmodule Base64.MixProject do
     [
       {:rustler, "~> 0.25"},
       {:stream_data, "~> 0.5.0", only: [:test, :dev]},
-      {:ex_doc, "~> 0.21", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
 
