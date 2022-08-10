@@ -27,7 +27,7 @@ defmodule Base64 do
 
   """
   @spec decode(binary, atom, atom) :: binary
-  def decode(_b64, _alphabet \\ :standard, _should_pad \\ true), do: error()
+  def decode(_b64, _alphabet \\ :standard, _padding \\ true), do: error()
 
   @doc """
   Encodes a string to base64.
@@ -41,7 +41,7 @@ defmodule Base64 do
       "aGVsbG8gd29ybGQ"
   """
   @spec encode(binary, atom, atom) :: binary
-  def encode(_s, _alphabet \\ :standard, _is_padded \\ true), do: error()
+  def encode(_s, _alphabet \\ :standard, _padding \\ true), do: error()
 
   defp error(), do: :erlang.nif_error(:nif_not_loaded)
 end

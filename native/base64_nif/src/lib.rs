@@ -16,16 +16,16 @@ mod atoms {
 }
 
 #[rustler::nif]
-pub fn decode(b64: String, alphabet: Atom, should_pad: bool) -> String {
-    let engine = match_config(alphabet, should_pad);
+pub fn decode(b64: String, alphabet: Atom, padding: bool) -> String {
+    let engine = match_config(alphabet, padding);
     let bytes = decode_engine(b64, &engine).expect("decode failed: invalid b64");
 
     String::from_utf8(bytes).unwrap()
 }
 
 #[rustler::nif]
-pub fn encode(s: String, alphabet: Atom, is_padded: bool) -> String {
-    let engine = match_config(alphabet, is_padded);
+pub fn encode(s: String, alphabet: Atom, padding: bool) -> String {
+    let engine = match_config(alphabet, padding);
     encode_engine(s.as_bytes(), &engine)
 }
 
